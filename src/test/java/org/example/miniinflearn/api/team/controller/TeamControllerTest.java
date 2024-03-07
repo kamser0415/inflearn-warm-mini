@@ -56,6 +56,4 @@ class TeamControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.body").value("FAIL"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.message").value("팀명은 공백이나 null이 들어올 수 없습니다."));
     }
-
-
 }
