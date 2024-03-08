@@ -1,6 +1,6 @@
 package org.example.miniinflearn.domain.team;
 
-import org.example.miniinflearn.api.team.service.response.TeamProfileResponse;
+import org.example.miniinflearn.domain.team.query.TeamProfileResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -11,7 +11,7 @@ public interface TeamJpaRepository extends JpaRepository<Team, Long>{
     Optional<Team> findByName(String name);
 
     @Query("select " +
-            "new org.example.miniinflearn.api.team.service.response.TeamProfileResponse(" +
+            "new org.example.miniinflearn.domain.team.query.TeamProfileResponse(" +
             "t.name, " +
             "function('listagg', case when e.role = MANAGER then e.name else null end,','),"+
             "SUM(CASE WHEN e.teamId is not null then 1L ELSE 0L END)) " +

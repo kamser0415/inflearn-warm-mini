@@ -21,7 +21,8 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public Employee findById(long employeeId) {
-        return jpaRepository.findById(employeeId).orElseThrow(IllegalArgumentException::new);
+        return jpaRepository.findById(employeeId)
+                .orElseThrow(IllegalArgumentException::new);
     }
 
     @Override

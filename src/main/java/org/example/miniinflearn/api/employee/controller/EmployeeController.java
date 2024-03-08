@@ -1,7 +1,8 @@
 package org.example.miniinflearn.api.employee.controller;
 
+import jakarta.validation.Valid;
 import org.example.miniinflearn.api.ApiResponse;
-import org.example.miniinflearn.api.employee.controller.request.EmployeeCreateRequest;
+import org.example.miniinflearn.api.employee.controller.request.CreateEmployeeRequest;
 import org.example.miniinflearn.api.employee.service.response.EmployeeProfileResponse;
 import org.example.miniinflearn.api.employee.service.EmployeeService;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/employee")
-    public ApiResponse<Long> joinEmployee(@RequestBody EmployeeCreateRequest request) {
+    public ApiResponse<Long> joinEmployee(@RequestBody @Valid CreateEmployeeRequest request) {
         return ApiResponse.ok(employeeService.joinEmployee(request));
     }
 }

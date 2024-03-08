@@ -8,10 +8,15 @@ import java.util.List;
 
 public interface EmployeeJpaRepository extends JpaRepository<Employee, Long> {
 
-
+//
+//    @Query("select " +
+//            "new org.example.miniinflearn.api.employee.service.response.EmployeeProfileResponse(" +
+//            "e.name,t.name,str(e.role),cast(e.birthday as String),cast(e.workStartDate as String))" +
+//            "from Employee as e left join Team as t on e.teamId = t.id")
+//    List<EmployeeProfileResponse> getEmployeeProfileAll();
     @Query("select " +
             "new org.example.miniinflearn.api.employee.service.response.EmployeeProfileResponse(" +
-            "e.name,t.name,str(e.role),cast(e.birthday as String),cast(e.workStartDate as String))" +
+            "e.name,t.name,e.role,e.birthday,e.workStartDate)" +
             "from Employee as e left join Team as t on e.teamId = t.id")
     List<EmployeeProfileResponse> getEmployeeProfileAll();
 }

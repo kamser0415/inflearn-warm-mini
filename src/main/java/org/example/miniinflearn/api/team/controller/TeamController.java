@@ -6,7 +6,7 @@ import org.example.miniinflearn.api.team.service.response.TeamAddResponse;
 import org.example.miniinflearn.api.team.service.TeamService;
 import org.example.miniinflearn.api.ApiResponse;
 import org.example.miniinflearn.api.team.controller.request.CreateTeamRequest;
-import org.example.miniinflearn.api.team.service.response.TeamProfileResponse;
+import org.example.miniinflearn.domain.team.query.TeamProfileResponse;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

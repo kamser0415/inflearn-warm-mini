@@ -1,6 +1,6 @@
 package org.example.miniinflearn.api.employee.service;
 
-import org.example.miniinflearn.api.employee.controller.request.EmployeeCreateRequest;
+import org.example.miniinflearn.api.employee.controller.request.CreateEmployeeRequest;
 import org.example.miniinflearn.api.employee.service.response.EmployeeProfileResponse;
 import org.example.miniinflearn.domain.employee.Employee;
 import org.example.miniinflearn.domain.employee.EmployeeRepository;
@@ -20,13 +20,13 @@ public class EmployeeService {
         this.teamRepository = teamRepository;
     }
 
-    public long joinEmployee(EmployeeCreateRequest request) {
+    public long joinEmployee(CreateEmployeeRequest request) {
         Employee employee = Employee.create(request.getName(), request.getRole(), request.getJoinDate(), request.getBirthday());
         ifHasTeamThenJoinTeam(request, employee);
         return employeeRepository.save(employee);
     }
 
-    private void ifHasTeamThenJoinTeam(EmployeeCreateRequest request, Employee employee) {
+    private void ifHasTeamThenJoinTeam(CreateEmployeeRequest request, Employee employee) {
         if (request.hasTeam()) {
             Team team = teamRepository.findByName(request.getTeamName())
                     .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 팀명입니다."));

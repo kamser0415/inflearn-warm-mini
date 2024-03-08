@@ -1,9 +1,35 @@
 spring:
+  config:
+    activate:
+      on-profile: local
+
   datasource:
     url: "jdbc:mysql://localhost/work_manage"
     username: "root"
     password: "1234"
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+
+  datasource:
+    url: "jdbc:h2:tcp://localhost/~/work_manage;Mode=MySQL"
+    username: "sa"
+    password: ""
+    driver-class-name: org.h2.Driver
 
   jpa:
     hibernate:
@@ -13,4 +39,13 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
-        dialect: org.hibernate.dialect.MySQL8Dialect
+#        dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect: org.hibernate.dialect.H2Dialect
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  port: 8888

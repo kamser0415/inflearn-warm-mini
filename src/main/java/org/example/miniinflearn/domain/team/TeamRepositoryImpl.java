@@ -1,7 +1,7 @@
 package org.example.miniinflearn.domain.team;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import org.example.miniinflearn.api.team.service.response.TeamProfileResponse;
+import org.example.miniinflearn.domain.team.query.TeamProfileResponse;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
