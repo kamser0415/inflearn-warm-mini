@@ -1,6 +1,6 @@
 package org.example.miniinflearn.domain.team;
 
-import org.example.miniinflearn.api.team.service.response.TeamProfileResponse;
+import org.example.miniinflearn.domain.team.query.TeamProfileResponse;
 
 import java.util.List;
 import java.util.Optional;

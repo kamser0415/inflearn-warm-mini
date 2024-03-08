@@ -1,7 +1,7 @@
 package org.example.miniinflearn.api.employee.service;
 
 import org.assertj.core.api.Assertions;
-import org.example.miniinflearn.api.employee.controller.request.EmployeeCreateRequest;
+import org.example.miniinflearn.api.employee.controller.request.CreateEmployeeRequest;
 import org.example.miniinflearn.api.employee.service.response.EmployeeProfileResponse;
 import org.example.miniinflearn.api.team.service.TeamService;
 import org.example.miniinflearn.domain.employee.ROLE;
@@ -29,7 +29,7 @@ public class EmployeeServiceTest {
         ROLE role = ROLE.MANAGER;
         LocalDate joinDate = LocalDate.now();
         LocalDate birthday = LocalDate.of(2000, 3, 4);
-        EmployeeCreateRequest request = getEmployeeCreateRequest(name, role, joinDate, birthday);
+        CreateEmployeeRequest request = getEmployeeCreateRequest(name, role, joinDate, birthday);
 
         // when
         long joinEmployeeId = employeeService.joinEmployee(request);
@@ -38,8 +38,8 @@ public class EmployeeServiceTest {
         Assertions.assertThat(joinEmployeeId).isEqualTo(1L);
     }
 
-    private EmployeeCreateRequest getEmployeeCreateRequest(String name, ROLE role, LocalDate joinDate, LocalDate birthday) {
-        return EmployeeCreateRequest.builder()
+    private CreateEmployeeRequest getEmployeeCreateRequest(String name, ROLE role, LocalDate joinDate, LocalDate birthday) {
+        return CreateEmployeeRequest.builder()
                 .name(name)
                 .role(role)
                 .joinDate(joinDate)
@@ -74,8 +74,8 @@ public class EmployeeServiceTest {
                 );
     }
 
-    private EmployeeCreateRequest getEmployeeCreateRequest(String teamName, String name, ROLE role, LocalDate birthday, LocalDate workStartDate) {
-        return EmployeeCreateRequest.builder()
+    private CreateEmployeeRequest getEmployeeCreateRequest(String teamName, String name, ROLE role, LocalDate birthday, LocalDate workStartDate) {
+        return CreateEmployeeRequest.builder()
                 .teamName(teamName)
                 .name(name)
                 .role(role)

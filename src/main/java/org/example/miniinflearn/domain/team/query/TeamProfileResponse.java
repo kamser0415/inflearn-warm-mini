@@ -1,4 +1,4 @@
-package org.example.miniinflearn.api.team.service.response;
+package org.example.miniinflearn.domain.team.query;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +8,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class TeamProfileResponse {
+
     private String name;
     private String manager;
     private Long memberCount;
