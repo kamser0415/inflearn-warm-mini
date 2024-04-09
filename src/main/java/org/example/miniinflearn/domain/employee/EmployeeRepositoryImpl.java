@@ -2,10 +2,12 @@ package org.example.miniinflearn.domain.employee;
 
 import org.example.miniinflearn.api.employee.service.response.EmployeeProfileResponse;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Repository
+@Transactional
 public class EmployeeRepositoryImpl implements EmployeeRepository {
     private final EmployeeJpaRepository jpaRepository;
 
@@ -22,7 +24,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     @Override
     public Employee findById(long employeeId) {
         return jpaRepository.findById(employeeId)
-                .orElseThrow(IllegalArgumentException::new);
+                .orElseThrow(()->new IllegalArgumentException("존재하지 않는 직원"));
     }
 
     @Override

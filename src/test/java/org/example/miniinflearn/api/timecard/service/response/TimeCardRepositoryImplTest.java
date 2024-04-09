@@ -1,6 +1,8 @@
 package org.example.miniinflearn.api.timecard.service.response;
 
 import org.example.miniinflearn.domain.employee.EmployeeRepositoryImpl;
+import org.example.miniinflearn.domain.timecard.TimeCard;
+import org.example.miniinflearn.domain.timecard.TimeCardRepositoryImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +12,6 @@ import org.springframework.test.context.ActiveProfiles;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @ActiveProfiles("test")
 @DataJpaTest

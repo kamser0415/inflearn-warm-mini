@@ -1,4 +1,4 @@
-package org.example.miniinflearn.api.timecard.service.response;
+package org.example.miniinflearn.domain.timecard;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
@@ -15,7 +15,7 @@ import com.querydsl.core.types.Path;
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
 public class QTimeCard extends EntityPathBase<TimeCard> {
 
-    private static final long serialVersionUID = 352102970L;
+    private static final long serialVersionUID = 489508970L;
 
     public static final QTimeCard timeCard = new QTimeCard("timeCard");
 
@@ -26,6 +26,8 @@ public class QTimeCard extends EntityPathBase<TimeCard> {
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final DateTimePath<java.time.LocalDateTime> leaveAt = createDateTime("leaveAt", java.time.LocalDateTime.class);
+
+    public final DatePath<java.time.LocalDate> recordDate = createDate("recordDate", java.time.LocalDate.class);
 
     public QTimeCard(String variable) {
         super(TimeCard.class, forVariable(variable));

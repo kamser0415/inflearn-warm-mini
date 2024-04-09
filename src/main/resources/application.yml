@@ -4,14 +4,14 @@ spring:
       on-profile: local
 
   datasource:
-    url: "jdbc:mysql://localhost/work_manage"
+    url: "jdbc:mysql://localhost:3307/work_manage"
     username: "root"
     password: "1234"
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
 
     properties:
       hibernate:
@@ -26,7 +26,8 @@ spring:
       on-profile: test
 
   datasource:
-    url: "jdbc:h2:tcp://localhost/~/work_manage;Mode=MySQL"
+#    url: jdbc:h2:tcp://localhost/~/work_manage;Mode=MySQL
+    url: jdbc:h2:mem:work_manage;Mode=MySQL
     username: "sa"
     password: ""
     driver-class-name: org.h2.Driver
@@ -39,8 +40,8 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
-#        dialect: org.hibernate.dialect.MySQL8Dialect
-        dialect: org.hibernate.dialect.H2Dialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
+#        dialect: org.hibernate.dialect.H2Dialect
 
   h2:
     console:

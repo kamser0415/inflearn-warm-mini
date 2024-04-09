@@ -18,4 +18,5 @@ public interface TeamJpaRepository extends JpaRepository<Team, Long>{
             "from Team as t " +
             "left join Employee as e on t.id = e.teamId GROUP BY t.name")
     List<TeamProfileResponse> getTeamProfile();
+
 }
